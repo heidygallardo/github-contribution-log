@@ -12,7 +12,7 @@
 
 I chose this issue because I want to learn more about frontend development and UI design. This issue affects the application's UI which gives me the opportunity to work on a part of the app that directly affects the user experience across different screen sizes. I am interested in understanding how UI components are structured and maintained in a production-level app.
 
-This issue also aligns with my learning goals of becoming more comfortable working in large, open-source codebases. Through this project, I hope to learn how experienced developers organize frontend code, debug UI-related problems, and test changes before submitting them.Since this issue involves responsive behavior at specific breakpoints, I am also excited to gain hands-on experience troubleshooting layout issues and learning how responsive design is implemented in real-world applications.
+This issue also aligns with my learning goals of becoming more comfortable working in large, open-source codebases. Through this project, I hope to learn how experienced developers organize frontend code, debug UI-related problems, and test changes before submitting them. Since this issue involves responsive behavior at specific breakpoints, I am also excited to gain hands-on experience troubleshooting layout issues and learning how responsive design is implemented in real-world applications.
 
 ---
 
