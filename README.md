@@ -1,15 +1,18 @@
-# Contribution [#]: [Issue Title]
+# Contribution [#18505]: UI bug with bootstrap theme on settings > Page related settings 
 
-**Contribution Number:** [1 / 2 / 3]  
-**Student:** [Your Name]  
-**Issue:** [GitHub issue link]  
-**Status:** [Phase I / Phase II / Phase III / Phase IV] [In Progress / Complete]
+
+**Contribution Number:** 1 
+**Student:** Heidy Gallardo 
+**Issue:** https://github.com/phpmyadmin/phpmyadmin/issues/18505 
+**Status:** Phase I Complete
 
 ---
 
 ## Why I Chose This Issue
 
-[1-2 paragraphs explaining why this issue interests you, how it matches your skills/learning goals, what you hope to learn]
+I chose this issue because I want to learn more about frontend development and UI design. This issue affects the application's UI which gives me the opportunity to work on a part of the app that directly affexts the user experience. I am interested in understanding how UI components are structured and maintained in a production-level app.
+
+This issue also aligns with my learningn goals of becoming more comfortable working in large, open-source codebases. Through this project, I hope to learn how experienced developers organize frontend code, debug UI-related problems, and test changes before submitting them. 
 
 ---
 
