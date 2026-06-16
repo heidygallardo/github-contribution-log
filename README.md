@@ -21,18 +21,25 @@ This issue also aligns with my learning goals of becoming more comfortable worki
 ### Problem Description
 
 [In your own words, what's broken or missing?]
+The container loses its horizontal spacing at exact responsive breakpoint widths.
 
 ### Expected Behavior
 
-[What should happen?]
+[What should happen?] 
+The container should maintain a consistent horizontal gutter from the edges of the viewport at all screen sizes, including when the viewport width exactly matches a breakpoint.
 
 ### Current Behavior
 
 [What actually happens?]
+At viewport widths of 640px, 768px, 1024px, and 1280px, the container's max-width becomes equal to the viewport width. Since there is no extra horizontal space available, the auto margins become 0, resulting in the content appearing close to the left and right edges of the screen.
 
 ### Affected Components
 
 [Which parts of the codebase are involved?]
+- main.css
+- @utility container definition
+- breakpoint-specific container max-width rules
+- any page or component that uses the shared container utility
 
 ---
 
@@ -41,18 +48,32 @@ This issue also aligns with my learning goals of becoming more comfortable worki
 ### Environment Setup
 
 [Notes on setting up your local development environment - challenges you faced, how you solved them]
+I first verified that Node.js ws installed on my maching. During setup, I discovered that pnpm was not installed. I used Corepack to enable and install pnpm, then confirmed installation.
+
+After completing tool setup, I:
+1. Forked and cloned the repository.
+2. Created a branch following the project's branch naming guidelines.
+3. Installed project dependencies using pnpm install
+4. Copied the contents of .env.example into a local .env file.
+5. Started the development server using pnpm dev .
+
+The main challenge during setu was that pnpm ws not installed locally. After enabling and installing it through Corepack, I was able to insall dependencies and run the app smoothly.
 
 ### Steps to Reproduce
 
-1. [Step 1]
-2. [Step 2]
-3. [Observed result]
+1. Start the app using: pnpm dev 
+2. Open the app in browser and open Developer Tools
+3. Enable Responsive Design Mode.
+4. Set the viewport width to 768px (the issue can also be reproduced at 640px, 1024px, and 1280px).
+5. Inspect the container element and observe its computed width.
+6. Compare the container width to the viewport width.
+7. At the affected breakpoint width, the container's max-width matches the viewport width exactly. Since there is no remaining horizontal space, the auto margins become 0, which causes the content to touch the left and right edges of the screen.
 
 ### Reproduction Evidence
 
-- **Commit showing reproduction:** [Link to commit in your fork]
-- **Screenshots/logs:** [If applicable]
-- **My findings:** [What you discovered during reproduction]
+- **Commit showing reproduction:** [Link to commit in your fork] N/A (reproduced locally)
+- **Screenshots/logs:** ![Container loses gutter at 1024px] (screenshots\replicate-bug-1024-width.png)
+- **My findings:** [I traced the issue to the `@utility container` definition in `main.css`. The container uses `margin-left: auto` and `margin-right: auto` for centering, while the breakpoint-specific `max-width` values are set to the same values as their corresponding media query breakpoints (`640px`, `768px`, `1024px`, and `1280px`). When the viewport width matches one of these values exactly, the container fills the entire viewport width, leaving no remaining space for the auto margins and causing the content to touch the screen edges.]
 
 ---
 
@@ -60,30 +81,71 @@ This issue also aligns with my learning goals of becoming more comfortable worki
 
 ### Analysis
 
-[Your analysis of the root cause - what's causing the issue?]
+[The issue is caused by the `@utility container` definition in `main.css`. The container uses auto margins for centering, but its max-width values match the breakpoint widths (640px, 768px, 1024px, and 1280px).
+
+When the viewport width matches one of these breakpoints exactly, the container fills the entire viewport width, leaving no space for the auto margins. As a result, the content touches the screen edges.]
 
 ### Proposed Solution
 
-[High-level description of your fix approach]
+[My initial approach is to add horizontal padding to the container so a visible gutter remains even when the container reaches its maximum width.]
 
 ### Implementation Plan
 
 Using UMPIRE framework (adapted):
 
-**Understand:** [Restate the problem]
+**Understand:** [The container loses its horizontal spacing at exact breakpoint widhs (640px, 768px, 1024px, and 1280px).]
 
-**Match:** [What similar patterns/solutions exist in the codebase?]
+**Match:** [The issue is located in the @utility container definition in main.css:
+
+@media (min-width: 768px) {
+  max-width: 768px;
+}
+
+The same pattern exists for the other affected breakpoints (640px, 1024px, and 1280px).
+
+The issue discussion suggests either adding horizontal padding to the container or reducing the breakpoint max-width values.]
 
 **Plan:** [Step-by-step implementation plan]
-1. [Modify file X to do Y]
-2. [Add function Z]
-3. [Update tests]
+1. [Review the existing layout and spacing conventions used throughout the project.]
+2. [Update the @utility container implementation in main.css .]
+3. [Add horizontal spacing to the container so content does not touch the viewport edges at exact breakpoint widths.]
+4. [Keep the change focused only on the container utility.]
+5. [Verify that the change works across all affected breakpoints.]
 
-**Implement:** [Link to your branch/commits as you work]
+**Implement:** [Link to your branch/commits as you work
+Branch: fix/container-side-margins
 
-**Review:** [Self-review checklist - does it follow the project's contribution guidelines?]
+https://github.com/heidygallardo/betterlaspinas/tree/fix/container-side-margins 
 
-**Evaluate:** [How will you verify it works?]
+]
+
+**Review:** [Self-review checklist - does it follow the project's contribution guidelines?
+
+Self-review checklist before submitting changes: 
+
+- [ ] Keep the change limited to the container spacing issue.
+- [ ] Review my diff for unintended layout changes.
+- [ ] Use a descriptive commit message.
+- [ ] Open a pull request against the main branch. 
+]
+
+**Evaluate:** [How will you verify it works?
+I will verify the fix by testing the container at: 
+
+- 640px
+- 768px
+- 1024px
+- 1280px 
+
+I will also test nerby viewport widths to ensure the responsive layout still behaves correctly.
+
+Since the contribution guidelines require bug fixes to include regression tests when appropriate, I will check whether the repository has an existing pattern for testing layout-related behavior. I will also run the project's existing test suite:
+
+pnpm test --run
+
+The fix will be successful if the container maintains visible horizontal spacing at the affected breakpoints and all existing tests continue to pass.
+
+]
 
 ---
 
