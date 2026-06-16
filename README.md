@@ -68,7 +68,7 @@ The main challenge during setup was that pnpm was not installed locally. After e
 ### Reproduction Evidence
 
 - **Commit showing reproduction:** N/A (reproduced locally)
-- **Screenshots/logs:** ![Container loses gutter at 1024px] 
+- **Screenshots/logs:** ![Container loses gutter at 1024px](screenshots/replicate-bug-1024-width.png)
 - **My findings:** I traced the issue to the `@utility container` definition in `main.css`. The container uses `margin-left: auto` and `margin-right: auto` for centering, while the breakpoint-specific `max-width` values are set to the same values as their corresponding media query breakpoints (`640px`, `768px`, `1024px`, and `1280px`). When the viewport width matches one of these values exactly, the container fills the entire viewport width, leaving no remaining space for the auto margins and causing the content to touch the screen edges.
 
 ---
