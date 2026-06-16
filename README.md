@@ -43,7 +43,7 @@ At viewport widths of 640px, 768px, 1024px, and 1280px, the container's max-widt
 
 ### Environment Setup
 
-I first verified that Node.js ws installed on my maching. During setup, I discovered that pnpm was not installed. I used Corepack to enable and install pnpm, then confirmed installation.
+I first verified that Node.js was installed on my machine. During setup, I discovered that pnpm was not installed. I used Corepack to enable and install pnpm, then confirmed installation.
 
 After completing tool setup, I:
 
@@ -53,7 +53,7 @@ After completing tool setup, I:
 4. Copied the contents of `.env.example` into a local `.env` file.
 5. Started the development server using `pnpm dev`.
 
-The main challenge during setup was that pnpm was not installed locally. After enabling and installing it through Corepack, I was able to insall dependencies and run the app smoothly.
+The main challenge during setup was that pnpm was not installed locally. After enabling and installing it through Corepack, I was able to install dependencies and run the app smoothly.
 
 ### Steps to Reproduce
 
@@ -129,7 +129,7 @@ I will verify the fix by testing the container at:
 - 1024px
 - 1280px 
 
-I will also test nerby viewport widths to ensure the responsive layout still behaves correctly.
+I will also test nearby viewport widths to ensure the responsive layout still behaves correctly.
 
 Since the contribution guidelines require bug fixes to include regression tests when appropriate, I will check whether the repository has an existing pattern for testing layout-related behavior. I will also run the project's existing test suite:
 
