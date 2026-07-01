@@ -160,9 +160,28 @@ The fix will be successful if the container maintains visible horizontal spacing
 
 ## Implementation Notes
 
-### Week [X] Progress
+### Week 3 Progress
 
 [What you built this week, challenges faced, decisions made]
+During Week 3 I looked at test files to check if UI CSS-specific changes have existing tests. After looking at test files and leveraging AI to find any test files that cover CSS changes. 
+
+Challenge Faced
+During this week, a challenge I faced was that one existing test was failing, and it was unrelated to the CSS changes I made to fix the bug. The root cause was an existing shebang: #!/usr/bin/env node located in the sripts/validate-config.mjs files. A shebang is only valid when a file is execued by the OS/Node (which strips it before compiling). When Vitest imports the file as a module, the leading # is invalid JavaScript, causing the error mesage "Invalid or unexpected token" to appear. 
+
+How I overcame the Challenge
+To solve this, I followed the following steps:
+1. Stop Git from forcing CRLF on checkout (config only - touches no files)
+2. Stashed only the uncommitted CSS work so the branch update didn't disturb it.
+3. Fast-forwarded the local branch to the synced main
+4. Forced a fresh checkout of the broken file so it lands as LF.
+5. Restored teh CSS work on top of the updated code.
+6. Staged and commit
+7. Re-ran the existing tests
+
+
+
+
+
 
 ### Week [Y] Progress
 
