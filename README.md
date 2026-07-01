@@ -160,7 +160,7 @@ The fix will be successful if the container maintains visible horizontal spacing
 
 ## Implementation Notes
 
-### Week 3 Progress
+### Week 4 Progress
 
 [What you built this week, challenges faced, decisions made]
 During Week 3 I looked at test files to check if UI CSS-specific changes have existing tests. After looking at test files and leveraging AI to find any test files that cover CSS changes. 
