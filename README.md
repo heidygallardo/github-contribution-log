@@ -163,7 +163,7 @@ The fix will be successful if the container maintains visible horizontal spacing
 ### Week 4 Progress
 
 [What you built this week, challenges faced, decisions made]
-During Week 3 I looked at test files to check if UI CSS-specific changes have existing tests. After looking at test files and leveraging AI to find any test files that cover CSS changes. 
+During Week 4 I looked at test files to check if UI CSS-specific changes have existing tests. After looking at test files and leveraging AI to find any test files that cover CSS changes. 
 
 Challenge Faced
 During this week, a challenge I faced was that one existing test was failing, and it was unrelated to the CSS changes I made to fix the bug. The root cause was an existing shebang: #!/usr/bin/env node located in the sripts/validate-config.mjs files. A shebang is only valid when a file is execued by the OS/Node (which strips it before compiling). When Vitest imports the file as a module, the leading # is invalid JavaScript, causing the error mesage "Invalid or unexpected token" to appear. 
@@ -177,6 +177,16 @@ To solve this, I followed the following steps:
 5. Restored teh CSS work on top of the updated code.
 6. Staged and commit
 7. Re-ran the existing tests
+
+
+### Week 5 Progress
+During 5, I added a co-located Vitest test for the container side-margins fix (per CONTRIBUTING's "bug fixes should include regression tests").
+
+Regression test — app/assets/css/main.test.ts
+
+**What it verifies:** for every breakpoint in the @utility container block, max-width must be less than the breakpoint width — the condition that guarantees side gutters. The test only asserts this invariant, not exact pixel values, so widths can be updated to lower values without breaking the test; only an edge-to-edge container (the original bug) fails.
+
+The test also strips CSS comments so commented-out rules can't hide active ones, finds max-width anywhere in the media block (order-independent), and guards against a broken parse silently passing with zero assertions.
 
 
 
