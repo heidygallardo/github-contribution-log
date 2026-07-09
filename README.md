@@ -193,9 +193,9 @@ The test also strips CSS comments so commented-out rules can't hide active ones,
 
 ### Code Changes
 
-- **Files modified:** [List]
-- **Key commits:** [Links to important commits]
-- **Approach decisions:** [Why you chose certain approaches]
+- **Files modified:** `app/assets/css/main.test.ts` (new regression test)
+- **Key commits:** https://github.com/heidygallardo/betterlaspinas/commit/0badc5968887d7a4fe1b3d94c4a8c6c8f0d6f922
+- **Approach decisions:** The test asserts the invariant (each max-width < its breakpoint) instead of exact pixel values, so widths can be adjusted without breaking the test. However, an edge-to-edge container still fails.
 
 ---
 
