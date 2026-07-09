@@ -143,18 +143,17 @@ The fix will be successful if the container maintains visible horizontal spacing
 
 ### Unit Tests
 
-- [ ] Test case 1: [Description]
-- [ ] Test case 2: [Description]
-- [ ] Test case 3: [Description]
+- [x] Test case 1: Container has a max-width at each breakpoint
+- [x] Test case 2: Each max-width is smaller than its breakpoint (leaves a side gutter)
+- [x] Test case 3: Fails if the container goes edge-to-edge (the original bug)
 
 ### Integration Tests
 
-- [ ] Integration scenario 1
-- [ ] Integration scenario 2
+- [ ] N/A since CSS change only, tested at the unit level
 
 ### Manual Testing
 
-[What you tested manually and results]
+I ran `pnpm lint && pnpm typecheck && pnpm test --run` to confirm the existing tests pass, along with the new `main.test.ts` for my change. To check my test worked, I set the 640px breakpoint's max-width to 640px (the old edge-to-edge bug) and confirmed the test failed, then reverted it.
 
 ---
 
@@ -187,11 +186,6 @@ Regression test — app/assets/css/main.test.ts
 **What it verifies:** for every breakpoint in the @utility container block, max-width must be less than the breakpoint width — the condition that guarantees side gutters. The test only asserts this invariant, not exact pixel values, so widths can be updated to lower values without breaking the test; only an edge-to-edge container (the original bug) fails.
 
 The test also strips CSS comments so commented-out rules can't hide active ones, finds max-width anywhere in the media block (order-independent), and guards against a broken parse silently passing with zero assertions.
-
-
-
-
-
 
 ### Week [Y] Progress
 
