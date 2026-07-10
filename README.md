@@ -219,16 +219,22 @@ Lowered each max-width to sit below its breakpoint (592/720/976/1232px) so the c
 
 ### Technical Skills Gained
 
-From this fix, I learned how to navigate an existing codebase, and how to contribute by following the codebase rules. 
-I also learned to go by the CONTRIBUTING.md file, since this file holds all the code style conventions and steps to take before opening a pull request. 
+- **Navigating an unfamiliar codebase.** I learned how to navigate around an existing Nuxt/Vue project by locating relevant styles, understanding how the file structure is organized, and tracing where a change needed to happen.
+- **Following project conventions.** I learned to follow CONTRIBUTING.md as the source of truth, where I can find code style conventions and the steps to take before opening a pull request.
+- **CSS layout/ responsive design.** The fix itself involved adjusting the container's max-width to add side margins, so I got to practice reasoning about layout widths relative to responsive breakpoints.
+- **Writing and running tests.** I learned how tests are co-located next to the source they cover, and how to write an assertion that guards the intended behavior. In this case it was verifying the container max-width stays below each breakpoint.
+- **Git & the contribution worklflow.** I practice creating a properly named feature branch, writing conventional commit messages, ensuring I was up-to-date with upstream, and opening a pull request against main.
 
 ### Challenges Overcome
 
-[What was hard and how you solved it]
-
+- **Line endings**: Working on Windows, my editor saved files with Windows-style carriage-return line endings, which clashed with the repo's expected Unix-style endings. This showed up as lint/diff noise where whole files looked "changed" even though I had only touched the main.css file. I resolved it by normalizing my line endings to LF so the diff reflected only my actual changes.
+- **Writing the test**: I had not added any tests to this codebase before, so figuring out where the test belonged and how to assert the behavior took some digging. I learned the project co-locates `.test.ts` files next to the source they cover. To overcome this I looked at the existing Vitest test files and followed the existing patters to write a test that verifies the container's max-width stays below each responsive breakpoint.
+  
 ### What I'd Do Differently Next Time
 
-[Reflection on your process]
+I would read CONTRIBUTING.md thoroughly up front and ensure the OS is compatible with mine. I would also refer to this whenever I am unsure about any coding standards, commit format, branch naming, or the PR process for the current project. 
+
+I would also move into the next phase, and not wait as much to keep the momentum going.
 
 ---
 
