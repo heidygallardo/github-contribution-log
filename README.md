@@ -4,7 +4,7 @@
 **Contribution Number:** [1] 
 **Student:** [Heidy Gallardo] 
 **Issue:** [https://github.com/betterlaspinas/betterlaspinas/issues/116] 
-**Status:** [Phase III In Progress]
+**Status:** [Phase IV Complete]
 
 ---
 
@@ -201,15 +201,17 @@ The test also strips CSS comments so commented-out rules can't hide active ones,
 
 ## Pull Request
 
-**PR Link:** [GitHub PR URL when submitted]
+**PR Link:** https://github.com/betterlaspinas/betterlaspinas/pull/229#issuecomment-4939913348
 
-**PR Description:** [Draft or final PR description - much of the content above can be adapted]
+**PR Description:** Fixed the issue where the container's max-width matched its media-query breakpoint (640/768/1024/1280px), which made content sit flush against the screen edges at those exact viewport widths.
+
+Lowered each max-width to sit below its breakpoint (592/720/976/1232px) so the container is always narrower than the viewport, giving consistent side margins. Also added a Vitest regression test that asserts each max-width stays below its breakpoint, so the bug can't silently return if the widths are retuned later.
 
 **Maintainer Feedback:**
 - [Date]: [Summary of feedback received]
 - [Date]: [How you addressed it]
 
-**Status:** [Awaiting review / Iterating / Approved / Merged]
+**Status:** [Awaiting review]
 
 ---
 
@@ -217,7 +219,8 @@ The test also strips CSS comments so commented-out rules can't hide active ones,
 
 ### Technical Skills Gained
 
-[What you learned technically]
+From this fix, I learned how to navigate an existing codebase, and how to contribute by following the codebase rules. 
+I also learned to go by the CONTRIBUTING.md file, since this file holds all the code style conventions and steps to take before opening a pull request. 
 
 ### Challenges Overcome
 
