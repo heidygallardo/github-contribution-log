@@ -179,7 +179,7 @@ To solve this, I followed the following steps:
 
 
 ### Week 5 Progress
-During 5, I added a co-located Vitest test for the container side-margins fix (per CONTRIBUTING's "bug fixes should include regression tests").
+During Week 5, I added a co-located Vitest test for the container side-margins fix (per CONTRIBUTING's "bug fixes should include regression tests").
 
 Regression test — app/assets/css/main.test.ts
 
@@ -187,9 +187,13 @@ Regression test — app/assets/css/main.test.ts
 
 The test also strips CSS comments so commented-out rules can't hide active ones, finds max-width anywhere in the media block (order-independent), and guards against a broken parse silently passing with zero assertions.
 
-### Week [Y] Progress
+### Week 6 Progress
+During Week 6, I finalized the changes needed before submitting a pull request which included:
+- updating CHANGELOG.md to state the unreleased fix I worked on
+- ensuring myfork's origin was up-to-date with upstream
+- filling out the repository's PR template
 
-[Continue documenting as you work]
+Once, finalized I submitted the pull request.
 
 ### Code Changes
 
